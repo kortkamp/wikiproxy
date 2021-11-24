@@ -12,22 +12,31 @@ interface Props {
 
 export default function BackgroundImage({page,lang}:Props){
   
-  const [image, setImage] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
   useEffect(()=>{
     const url = `https://${lang}.wikipedia.org/w/api.php?action=parse&page=${page}&prop=images&format=json&section=2&origin=*`
     async function getData(){
       const  {data} = await axios.get(url);
       const images = data.parse.images.filter((image:string)=>image.includes('.jpg'))
-      setImage(images[0]);
+
+      const getImageApiUrl = `https://${lang}.wikipedia.org/w/api.php?action=query&titles=File:${images[2]}&prop=imageinfo&iiprop=url&format=json&origin=*`
+      const imageData = await axios.get(getImageApiUrl);
+    
+      const gotImageUrl = imageData.data.query.pages['-1'].imageinfo[0].url;
+     
+      console.log(gotImageUrl)
+      setImageUrl(gotImageUrl);
 
     }
     getData();
   },[page,lang])
-  const imgUrl = `https://${lang}.wikipedia.org/wiki/File:${image}`
+  
   return (
-    <div className={styles.bgWraper} style={{backgroundImage:`url(https://${lang}.wikipedia.org/wiki/File:${image}?origin=*`}} >
-      {image}
-      <img src={imgUrl} alt="" />
+    <div className={styles.bgWrapper} >
+      {imageUrl && 
+        <img src={imageUrl} className={styles.image} alt={imageUrl} />
+      }
     </div>
   )
 }
+
