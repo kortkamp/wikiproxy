@@ -2,7 +2,11 @@ import React from "react";
 
 import styles from './styles.module.scss'
 
-export function Header(){
+interface Props {
+  language: string;
+}
+
+export function Header({language}:Props){
 
   return (
     <div className={styles.headerWraper}>
@@ -10,7 +14,7 @@ export function Header(){
         Wikiwand
       </div>
       <div>
-        tools
+        {language}
       </div>
     </div>
   )

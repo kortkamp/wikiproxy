@@ -5,7 +5,7 @@ import axios from 'axios';
 const WikiSection = dynamic(() => import("../../components/WikiSection"));
 
 import styles from '../../styles/Article.module.scss'
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Toc from "../../components/Toc";
 import { Header } from "../../components/Header";
@@ -49,6 +49,8 @@ interface Props {
 
 const Post = ({stringPath,stringSlug,data,sectionsData}:Props) => {
 
+  const [language, setLanguage] = useState(stringPath);
+
   return (
     <>
       <Head>
@@ -57,7 +59,7 @@ const Post = ({stringPath,stringSlug,data,sectionsData}:Props) => {
       </Head>
       
       <Toc data= { sectionsData.parse }></Toc>
-      <Header />
+      <Header language={language}/>
       <BackgroundImage page={stringSlug} lang={stringPath}></BackgroundImage>
       <div className="mainWraper">
         <div className={styles.title}>
