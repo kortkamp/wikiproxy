@@ -1,17 +1,15 @@
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import Script from 'next/script'
+import Head from "next/head";
 import axios from 'axios';
 
-const WikiSection = dynamic(() => import("../../components/WikiSection"));
-
-import styles from '../../styles/Article.module.scss'
-import React, { useState } from "react";
-import Head from "next/head";
 import Toc from "../../components/Toc";
 import { Header } from "../../components/Header";
+const WikiSection = dynamic(() => import("../../components/WikiSection"));
 const  BackgroundImage  = dynamic(() => import("../../components/BackgroundImage"));
 
-
+import {Container} from '../../styles/Article';
 
 interface PropsMobileView {
   stringPath: string;
@@ -34,7 +32,6 @@ interface SectionsData {
               byteoffset: number
               anchor: string
           }[]
-      
   }
 }
 
@@ -55,25 +52,25 @@ const Post = ({stringPath,stringSlug,data,sectionsData}:Props) => {
     <>
       <Head>
         <title>Test</title>
-        <link href="https://wikiwand-19431.kxcdn.com/css/wikiwand.early.min.4165aba9.css" rel="stylesheet" key="test"/>
+        {/* <link href="https://wikiwand-19431.kxcdn.com/css/wikiwand.early.min.4165aba9.css" rel="stylesheet" key="test"/> */}
       </Head>
       
       <Toc data= { sectionsData.parse }></Toc>
       <Header language={language}/>
       <BackgroundImage page={stringSlug} lang={stringPath}></BackgroundImage>
-      <div className="mainWraper">
-        <div className={styles.title}>
+      <Container>
+        <div className='title'>
           {sectionsData.parse.title}
         </div>
         <div className="contentWraper article_content light">
-          <div className="article_content" dangerouslySetInnerHTML={{ __html: data.parse.text['*'] }} ></div>
+          <div id="overview" className="article_content" dangerouslySetInnerHTML={{ __html: data.parse.text['*'] }} ></div>
          
           {sectionsData.parse.sections.filter((section)=>section.byteoffset > 0)
           .map((section)=>(
               <WikiSection key={section.index} lang={stringPath} page={stringSlug} section={section}/>    
           ))}
         </div>
-      </div>
+      </Container>
     </>
   )
 }

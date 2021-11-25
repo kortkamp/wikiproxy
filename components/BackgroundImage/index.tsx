@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-import styles from './styles.module.scss'
+import {Container } from './styles';
 
 interface Props {
   page:string;
@@ -32,11 +32,11 @@ export default function BackgroundImage({page,lang}:Props){
   },[page,lang])
   
   return (
-    <div className={styles.bgWrapper} >
-      {imageUrl && 
-        <img src={imageUrl} className={styles.image} alt={imageUrl} />
-      }
-    </div>
+    <Container style={{backgroundImage: `url(${imageUrl})`}}>
+      {/* {imageUrl && 
+        <img src={imageUrl} alt={imageUrl} />
+      } */}
+    </Container>
   )
 }
 

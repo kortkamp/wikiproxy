@@ -1,7 +1,6 @@
 import React from "react";
+import { Container, Header, TocItem, TocList } from "./styles";
 
-
-import styles from './styles.module.scss'
 
 interface Props {
   data: {
@@ -36,19 +35,22 @@ export default function Toc({ data }:Props){
   
 
   return (
-    <div className={styles.toc}> 
-      <h1>
+    <Container> 
+      <Header>
         {data.title}
-      </h1>
-      <ul className={styles.scrollable}>
+      </Header>
+      <TocList>
+        <a href={'#overview'}>
+          Introduction
+        </a>
         {data.sections.map((section)=>(
-          <li key={section.number} className={section.toclevel === 1 ? styles.tocLevel1 : styles.tocLevel2}>
+          <TocItem key={section.number} className={section.toclevel === 1 ? "tocLevel1" : "tocLevel2"}>
             <a href={'#' + section.anchor}>
               {section.line}
             </a>
-          </li>
+          </TocItem>
         ))}
-      </ul>
-    </div>
+      </TocList>
+    </Container>
   )
 }

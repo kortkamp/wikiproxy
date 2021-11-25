@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import styles from './styles.module.scss'
+import {Container} from './styles'
 
 interface SectionData {
   toclevel: number,
@@ -44,10 +44,10 @@ export default function WikiSection({ lang, page , section}:Props){
   
 
   return (
-    <div 
-      className={styles.Container + ' article_content'}  
+    <Container
+      className={'article_content'}  
       dangerouslySetInnerHTML={{ __html: htmlData.parse?.text['*'] || '' }}>
-    </div>
+    </Container>
   )
 
 }

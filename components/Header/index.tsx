@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "./styles";
 
 import styles from './styles.module.scss'
 
@@ -9,13 +10,13 @@ interface Props {
 export function Header({language}:Props){
 
   return (
-    <div className={styles.headerWraper}>
+    <Container>
       <div>
         Wikiwand
       </div>
       <div>
         {language}
       </div>
-    </div>
+    </Container>
   )
 }
