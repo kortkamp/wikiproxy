@@ -1,32 +1,27 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-
-  html,
-  body {
-    
-    font-size: 100%;
-    /* font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Lato','Helvetica','Arial',sans-serif; */
-    line-height: 1.4;
-
-  
-    
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .light a {
-    color: #1559b5;
-  }
-
   * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
   }
+
+  html,
+  body {
+    font-size: 100%;
+    /* font-family: -apple-system,'BlinkMacSystemFont','Segoe UI','Roboto','Lato','Helvetica','Arial',sans-serif; */
+    line-height: 1.4;
+    background-color: ${({theme})=>theme.colors.background};
+
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({theme})=>theme.colors.link};
+  }
+
+
 
   section {
     margin-top: 15px;
@@ -68,22 +63,23 @@ export default createGlobalStyle`
     clear: right !important;
 
     font-size: 90%;
-    position: relative;
+    /* position: relative; */
     border: 1px solid #eaecf0;
-    background-color: #f8f9fa;
+    background-color: ${({theme})=>theme.colors.background};;
   }
 
   .contentWraper {
-    padding: 10px 20px;
-    margin: 0 auto;
-    max-width: 1100px;
+    padding: 20px 20px;
+
+    border-radius: 5px
   }
 
-  .mw-references-wrap {
-    display: none;
+  .article_content {
+    position: relative;
+    min-width: 0;
   }
 
-  .error, .hatnote, .mbox-text-span , .mw-editsection{
+  .error, .hatnote, .mbox-text-span , .mw-editsection, .mw-references-wrap{
     display: none;
   }
 

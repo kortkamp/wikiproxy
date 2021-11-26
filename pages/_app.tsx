@@ -7,7 +7,7 @@ import GlobalStyle from '../styles/global';
 import {lightTheme, darkTheme} from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const darkmode = useDarkMode(true);
+  const darkmode = useDarkMode(false);
 
  
   return (

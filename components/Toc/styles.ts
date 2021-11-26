@@ -1,32 +1,37 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 0;
   width: 200px !important;
-  height: 100vh;
-  height: 100%;  
+  /* max-width: 0; */
+  height: 100vh;  
+  padding-left: 0px;
+
+  font: ${({theme})=>theme.font};
  
 
-  background-color: rgb(36, 34, 34);
-  color: #aaa;
+  background-color: ${({theme})=>theme.colors.background};
+  
   z-index: 999;
 
   outline: none;
-  backface-visibility: hidden;
-  & > h1 {
-   
+  a {
+    color: ${({theme})=>theme.colors.text_dark};
+    font-weight: 600;
   }
+ 
 
 `;
 
 export const Header = styled.h1`
-  color: #ddd;
+  margin: 10px 0; 
+  color: ${({theme})=>theme.colors.text_dark};
   font-weight: 600;
   font-size: 23px;
+  
   white-space: nowrap;
-
   overflow: hidden;
   text-overflow: ellipsis;
 `;
@@ -48,7 +53,7 @@ export const TocItem = styled.li`
   }
   &.tocLevel2 {
     font-size: 12px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     margin-bottom: 5px;
     white-space: nowrap;
 

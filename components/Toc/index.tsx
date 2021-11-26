@@ -40,9 +40,11 @@ export default function Toc({ data }:Props){
         {data.title}
       </Header>
       <TocList>
-        <a href={'#overview'}>
-          Introduction
-        </a>
+        <TocItem className="tocLevel1">
+          <a href={'#overview'}>
+            Introduction
+          </a>
+        </TocItem>
         {data.sections.map((section)=>(
           <TocItem key={section.number} className={section.toclevel === 1 ? "tocLevel1" : "tocLevel2"}>
             <a href={'#' + section.anchor}>

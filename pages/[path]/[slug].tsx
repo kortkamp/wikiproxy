@@ -51,24 +51,25 @@ const Post = ({stringPath,stringSlug,data,sectionsData}:Props) => {
   return (
     <>
       <Head>
-        <title>Test</title>
-        {/* <link href="https://wikiwand-19431.kxcdn.com/css/wikiwand.early.min.4165aba9.css" rel="stylesheet" key="test"/> */}
+        <title>Wikiwand</title>
       </Head>
       
-      <Toc data= { sectionsData.parse }></Toc>
-      <Header language={language}/>
-      <BackgroundImage page={stringSlug} lang={stringPath}></BackgroundImage>
+      {/* <BackgroundImage page={stringSlug} lang={stringPath}></BackgroundImage> */}
+          <Header language={language}/>
       <Container>
-        <div className='title'>
-          {sectionsData.parse.title}
-        </div>
+        <Toc data= { sectionsData.parse } />
         <div className="contentWraper article_content light">
+          <div className='title'>
+            {sectionsData.parse.title}
+          </div>
           <div id="overview" className="article_content" dangerouslySetInnerHTML={{ __html: data.parse.text['*'] }} ></div>
          
           {sectionsData.parse.sections.filter((section)=>section.byteoffset > 0)
           .map((section)=>(
               <WikiSection key={section.index} lang={stringPath} page={stringSlug} section={section}/>    
           ))}
+          {/* <WikiSection key={sectionsData.parse.sections[0].index} lang={stringPath} page={stringSlug} section={sectionsData.parse.sections[0]}/>   
+          <WikiSection key={sectionsData.parse.sections[1].index} lang={stringPath} page={stringSlug} section={sectionsData.parse.sections[1]}/>    */}
         </div>
       </Container>
     </>
