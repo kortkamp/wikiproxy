@@ -18,16 +18,8 @@ export const Container = styled.div`
 `;
 
 export const Tools = styled.div`
+    display: flex;
+    align-items:center;
 
 `;
 
-export const ThemeButton = styled.button`
-    position:relative;
-    width: 4rem;
-    height: 1.7rem;
-    
-
-    border-radius: 1.7rem;
-    
-
-`;

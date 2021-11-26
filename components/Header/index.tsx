@@ -1,5 +1,6 @@
 import React from "react";
 import useDarkMode from "use-dark-mode";
+import DarkToggle from "../DarkToggle";
 import { Container, Tools , ThemeButton} from "./styles";
 
 
@@ -17,7 +18,7 @@ export function Header({language}:Props){
         Wikiwand
       </div>
       <Tools>
-        <ThemeButton onClick={darkmode.toggle}></ThemeButton>
+        <DarkToggle isDark={darkmode.value} toggle={darkmode.toggle}/>
         {language}
       </Tools>
     </Container>
