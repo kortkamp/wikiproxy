@@ -11,6 +11,8 @@ export const Container = styled.button`
     align-items:center;
     justify-content: space-between;
   
+    background-color: #111;
+
     border-radius: 1.7rem;
     border: none;
 
@@ -23,7 +25,7 @@ export const Container = styled.button`
     }
 
     &.dark {
-      background-color: #111;
+      background-color: #ddd;
     }
 
     &::before{
