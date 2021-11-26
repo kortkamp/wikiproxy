@@ -16,3 +16,18 @@ export const Container = styled.div`
     font-size: 35px;
   
 `;
+
+export const Tools = styled.div`
+
+`;
+
+export const ThemeButton = styled.button`
+    position:relative;
+    width: 4rem;
+    height: 1.7rem;
+    
+
+    border-radius: 1.7rem;
+    
+
+`;

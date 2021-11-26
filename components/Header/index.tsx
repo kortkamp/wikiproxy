@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "./styles";
+import useDarkMode from "use-dark-mode";
+import { Container, Tools , ThemeButton} from "./styles";
 
-import styles from './styles.module.scss'
 
 interface Props {
   language: string;
@@ -9,14 +9,17 @@ interface Props {
 
 export function Header({language}:Props){
 
+  const darkmode = useDarkMode();
+
   return (
     <Container>
       <div>
         Wikiwand
       </div>
-      <div>
+      <Tools>
+        <ThemeButton onClick={darkmode.toggle}></ThemeButton>
         {language}
-      </div>
+      </Tools>
     </Container>
   )
 }

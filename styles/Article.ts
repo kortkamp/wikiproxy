@@ -7,6 +7,16 @@ export const Container = styled.div`
   }
 
   margin-left: 240px;
+
+  font: ${({theme})=>theme.font};
+  color: ${(props)=>props.theme.colors.text};
+  background-color: ${(props)=>props.theme.colors.shape};
+
+
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+
+
+  line-height: 1.5;
   // background-color: ;
   /* z-index: 1000; */
 
