@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 200px !important;
   /* max-width: 0; */
   height: 100vh;  
-  padding-left: 0px;
+  padding: 0px 20px;
 
   font: ${({theme})=>theme.font};
  

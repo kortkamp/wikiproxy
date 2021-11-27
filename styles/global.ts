@@ -68,16 +68,7 @@ export default createGlobalStyle`
     background-color: ${({theme})=>theme.colors.background};;
   }
 
-  .contentWraper {
-    padding: 20px 20px;
 
-    border-radius: 5px
-  }
-
-  .article_content {
-    position: relative;
-    min-width: 0;
-  }
 
   .error, .hatnote, .mbox-text-span , .mw-editsection, .mw-references-wrap{
     display: none;

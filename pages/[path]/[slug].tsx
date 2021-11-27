@@ -55,10 +55,10 @@ const Post = ({stringPath,stringSlug,data,sectionsData}:Props) => {
       </Head>
       
       {/* <BackgroundImage page={stringSlug} lang={stringPath}></BackgroundImage> */}
-          <Header language={language}/>
+      <Header language={language}/>
       <Container>
         <Toc data= { sectionsData.parse } />
-        <div className="contentWraper article_content light">
+        <div className="contentWraper article_content">
           <div className='title'>
             {sectionsData.parse.title}
           </div>
@@ -68,8 +68,6 @@ const Post = ({stringPath,stringSlug,data,sectionsData}:Props) => {
           .map((section)=>(
               <WikiSection key={section.index} lang={stringPath} page={stringSlug} section={section}/>    
           ))}
-          {/* <WikiSection key={sectionsData.parse.sections[0].index} lang={stringPath} page={stringSlug} section={sectionsData.parse.sections[0]}/>   
-          <WikiSection key={sectionsData.parse.sections[1].index} lang={stringPath} page={stringSlug} section={sectionsData.parse.sections[1]}/>    */}
         </div>
       </Container>
     </>
