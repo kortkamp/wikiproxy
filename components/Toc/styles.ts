@@ -4,28 +4,19 @@ export const Container = styled.div`
   position: sticky;
   left: 0;
   top: 0;
-  width: 200px !important;
-  /* max-width: 0; */
+  max-width: 200px;
   height: 100vh;  
 
-
   font: ${({theme})=>theme.font};
- 
-
   background-color: ${({theme})=>theme.colors.background};
+  outline: none;
   
   z-index: 999;
-
-  outline: none;
-
-  max-width: 200px;
-
   transition: .4s;
-
   
   &.hide {
     max-width: 0;
-    padding: 0px 13px;
+    padding: 0px 0px;
   }
 
   a {
@@ -47,19 +38,20 @@ export const Header = styled.h1`
   align-items: center;
   justify-content: space-between;
 
-  margin: 10px 0; 
-  padding: 0px 26px;
+
+ 
+  margin: 10px 26px;
+
   color: ${({theme})=>theme.colors.text_dark};
   font-weight: 600;
   font-size: 23px;
   
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+
 
   svg {
     position: absolute;
-    top: 12px;
+    top: 0.8rem;
     left: 2px;
   }
 `;
@@ -68,12 +60,14 @@ export const TocList = styled.ul`
   overflow-y:scroll;
   max-height: 100%;
   list-style-type: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
 export const TocItem = styled.li`
+  width: 200px !important;
   border: 0;
   
   padding: 3px 26px;
