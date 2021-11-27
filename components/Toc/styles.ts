@@ -47,6 +47,8 @@ export const Header = styled.h1`
   font-size: 23px;
   
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
 
   svg {

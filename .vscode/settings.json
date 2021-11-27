@@ -5,6 +5,8 @@
     "fromtitle",
     "imageinfo",
     "mobileview",
-    "pageid"
+    "pageid",
+    "wikiproxy",
+    "wordcount"
   ]
 }

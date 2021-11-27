@@ -10,7 +10,7 @@ export const lightTheme = {
     text: '#444',
     text_dark: '#333',
     link: '#1559b5',
-    background: '#f0f2f5',
+    background: '#fcfcfc',
   
   },
 
