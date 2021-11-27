@@ -1,7 +1,8 @@
+import Link from "next/link";
 import React from "react";
 import useDarkMode from "use-dark-mode";
 import DarkToggle from "../DarkToggle";
-import { Container, Tools , ThemeButton} from "./styles";
+import { Container, Tools ,LanguageButton, Title} from "./styles";
 
 
 interface Props {
@@ -14,12 +15,18 @@ export function Header({language}:Props){
 
   return (
     <Container>
-      <div>
-        Wikiwand
-      </div>
+      <Title>
+        <Link href="/" >
+          
+            Wikiwand
+          
+        </Link>
+      </Title>
       <Tools>
         <DarkToggle isDark={darkmode.value} toggle={darkmode.toggle}/>
-        {language}
+        <LanguageButton>
+          {language}
+        </LanguageButton>
       </Tools>
     </Container>
   )
