@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 200px !important;
   /* max-width: 0; */
   height: 100vh;  
-  padding: 0px 20px;
+  padding: 0px 26px;
 
   font: ${({theme})=>theme.font};
  
@@ -17,15 +17,36 @@ export const Container = styled.div`
   z-index: 999;
 
   outline: none;
+
+  max-width: 200px;
+
+  transition: .4s;
+
+  
+  &.hide {
+    max-width: 0;
+    padding: 0px 13px;
+  }
+
   a {
     color: ${({theme})=>theme.colors.text_dark};
     font-weight: 600;
   }
  
+  svg#menu {
+    height: 20px;
+    width: 20px;
+    fill: ${({theme})=>theme.colors.text_dark}
+  }
 
 `;
 
 export const Header = styled.h1`
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   margin: 10px 0; 
   color: ${({theme})=>theme.colors.text_dark};
   font-weight: 600;
@@ -34,6 +55,12 @@ export const Header = styled.h1`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  svg {
+    position: absolute;
+    top: 12px;
+    left: 2px;
+  }
 `;
 
 export const TocList = styled.ul`
