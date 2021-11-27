@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 200px !important;
   /* max-width: 0; */
   height: 100vh;  
-  padding: 0px 26px;
+
 
   font: ${({theme})=>theme.font};
  
@@ -48,6 +48,7 @@ export const Header = styled.h1`
   justify-content: space-between;
 
   margin: 10px 0; 
+  padding: 0px 26px;
   color: ${({theme})=>theme.colors.text_dark};
   font-weight: 600;
   font-size: 23px;
@@ -73,18 +74,23 @@ export const TocList = styled.ul`
 `;
 
 export const TocItem = styled.li`
-
+  border: 0;
+  
+  padding: 3px 26px;
   &.tocLevel1 {
     margin-top: 5px;
     font-size: 20px;
   }
   &.tocLevel2 {
     font-size: 12px;
-    /* padding-left: 20px; */
-    margin-bottom: 5px;
+    
     white-space: nowrap;
 
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &:hover{
+    background-color: ${({theme})=>theme.colors.shape}
   }
 `;
