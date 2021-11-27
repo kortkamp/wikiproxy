@@ -6,7 +6,6 @@ import axios from 'axios';
 import Toc from "../../components/Toc";
 import { Header } from "../../components/Header";
 const WikiSection = dynamic(() => import("../../components/WikiSection"));
-// const  BackgroundImage  = dynamic(() => import("../../components/BackgroundImage"));
 
 import {Container} from '../../styles/Article';
 
@@ -77,20 +76,31 @@ export const getServerSideProps = async ({query}) => {
   
   const { slug , path} = query;
 
-  const stringPath = path as string;
+  let stringPath = path as string;
+  if(stringPath === 'wiki'){
+    stringPath = 'en';
+  }
   const stringSlug = slug as string;
 
-  const url = `https://${stringPath}.wikipedia.org/w/api.php?action=parse&page=${stringSlug}&mobileformat=&prop=text&section=0&format=json&effectivelanglinks=`
+  const url = `https://${stringPath}.wikipedia.org/w/api.php?action=parse&page=${encodeURI(stringSlug)}&mobileformat=&prop=text&section=0&format=json&effectivelanglinks=&redirects=`
+ 
+  const sectionsUrl = `https://${stringPath}.wikipedia.org/w/api.php?action=parse&page=${encodeURI(stringSlug)}&prop=sections&format=json`
 
-  const sectionsUrl = `https://${stringPath}.wikipedia.org/w/api.php?action=parse&page=${stringSlug}&prop=sections&format=json`
-
-  const {data:sectionsData} = await axios.get(sectionsUrl);
-  const  {data} = await axios.get(url);
-
+  try{
+    const {data:sectionsData} = await axios.get(sectionsUrl);
+    const  {data} = await axios.get(url);
+    return {
+      props: {stringPath,stringSlug, data, sectionsData}, // will be passed to the page component as props
+    }
+  }
+  catch (err){
+    
+  }
 
   return {
-    props: {stringPath,stringSlug, data, sectionsData}, // will be passed to the page component as props
+    props: {}, 
   }
+
 }
 
 
