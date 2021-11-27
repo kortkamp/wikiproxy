@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import Script from 'next/script'
 import Head from "next/head";
 import axios from 'axios';
 
 import Toc from "../../components/Toc";
 import { Header } from "../../components/Header";
 const WikiSection = dynamic(() => import("../../components/WikiSection"));
-const  BackgroundImage  = dynamic(() => import("../../components/BackgroundImage"));
+// const  BackgroundImage  = dynamic(() => import("../../components/BackgroundImage"));
 
 import {Container} from '../../styles/Article';
 
