@@ -30,23 +30,23 @@ interface Data {
   }
 }
 export default function WikiSection({ lang, page , section}:Props){
-  const [htmlData, setHtmlData] = useState<Data>({});
+  const [htmlData, setHtmlData] = useState('');
 
   const url = `https://${lang}.wikipedia.org/w/api.php?action=parse&page=${page}&mobileformat=&prop=text&section=${section.index}&format=json&origin=*`
 
   useEffect(()=>{
     async function getData(){
       const  {data} = await axios.get(url);
-      setHtmlData(data);
+      setHtmlData(data.parse?.text['*'].replace(/\/wiki\//g, `/${lang}/`));
     }
     getData();
-  },[url])
+  },[url,lang])
   
 
   return (
     <Container
       className={'article_content'}  
-      dangerouslySetInnerHTML={{ __html: htmlData.parse?.text['*'] || '' }}>
+      dangerouslySetInnerHTML={{ __html: htmlData || '' }}>
     </Container>
   )
 
