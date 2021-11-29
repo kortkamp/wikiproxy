@@ -8,7 +8,7 @@ export const lightTheme = {
     shape: '#ffffff',
     title: '#363f5f',
     text: '#444',
-    text_dark: '#333',
+    text_dark: '#222',
     link: '#1559b5',
     background: '#fcfcfc',
   
