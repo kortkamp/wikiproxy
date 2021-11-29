@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   overflow: hidden;
   height: 500px;
-  margin-top: 50px;
+  
 `;
 
 export const List = styled.ul`
