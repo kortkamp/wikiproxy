@@ -18,11 +18,9 @@ export const SearchIco = ({onClick}:{onClick:()=>void}) => (
   </svg>
 ) 
 
-interface Props {
-  action?: (text: string)=>void;
-}
 
-export function WikiSearch({action}:Props){
+
+export function WikiSearch(){
 
 
   const [searchText, setSearchText] = useState('');
@@ -33,9 +31,7 @@ export function WikiSearch({action}:Props){
     if(!searchText) {
       return;
     }
-    // action(searchText);
     router.push(`/search/en/${searchText}`)
-    // setSearchText('');
   }
 
   return (
