@@ -5,18 +5,12 @@ import React, { useState } from 'react';
 import { WikiSearch } from '../components/WikiSearch';
 import { Header } from '../components/Header';
 
-import { Container , Content , SearchResult, SearchItem , Title, Snippet } from '../styles/Home';
+import { Container , Content , SearchResult, SearchItem , Title, Snippet, WikiView } from '../styles/Home';
 import axios from 'axios';
+import { FeaturedList } from '../components/FeaturedList';
+import { Footer } from '../components/Footer';
+import { FloatingTagsBackground } from '../components/FloatingTagsBackground';
 
-interface IResult {
-  ns: number,
-  title: string,
-  pageid: number,
-  size: number,
-  wordcount: number,
-  snippet: string,
-  timestamp: string
-}
 
 const Home: NextPage = () => {
   const [language, setLanguage] = useState('en');
@@ -46,23 +40,18 @@ const Home: NextPage = () => {
       <Header language={language}/>
 
       <Content className={searchResult.length ? 'filled' : ''}>
-        <WikiSearch action={handleSearch}/>
-        <SearchResult > 
-          {isLoading && 
-            <img src="/loading.gif" alt="" />
-          }
-          {searchResult.map((result)=>(
-            <SearchItem onClick={()=> console.log(result.title)} key={result.pageid}> 
-                <Link href={`/en/${result.title}`} >
-                    <Title>
-                      <h1>{result.title}</h1>
-                      <span>{`${window.location.href}${language}/${result.title}`}</span>
-                    </Title>
-                </Link>
-                <Snippet dangerouslySetInnerHTML={{ __html: result.snippet }}/>
-              </SearchItem>
-          ))}
-        </SearchResult> 
+        {/* <WikiSearch action={handleSearch}/> */}
+        <WikiView>
+            <h1>Upgrade your reading Experience</h1>
+            <p>A perfectly designed Wikipedia interface for a great reading experience</p>
+            <FloatingTagsBackground />
+        </WikiView>
+        <FeaturedList />
+        <WikiView>
+            <h1>Upgrade your reading Experience</h1>
+        </WikiView>
+
+        <Footer />
       </Content>
      
     </Container>
