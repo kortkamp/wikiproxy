@@ -34,9 +34,17 @@ export const Tools = styled.div`
 `;
 
 export const LanguageButton = styled.div`
-    line-height: normal;
+    height: 34px;
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+    
+    border: 1px solid ${({theme})=> theme.colors.text_dark};
+    border-radius: 14px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
    
 `;
 
