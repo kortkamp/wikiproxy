@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,7 +19,7 @@ export const Container = styled.div`
   }
 
   input {
-    padding: 10px 20px;
+    padding: 0 20px;
     border: none;
     background-color: transparent;
     font-size: 1.2rem;
@@ -26,8 +27,8 @@ export const Container = styled.div`
     
   }
   svg {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     margin-right: 10px;
     cursor: pointer;
   }

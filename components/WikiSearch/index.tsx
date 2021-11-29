@@ -1,5 +1,6 @@
-import { SVGProps, ComponentProps } from "react";
 import { useState } from "react";
+import { useRouter } from 'next/router'
+
 import { Container } from "./styles";
 
 export const SearchIco = ({onClick}:{onClick:()=>void}) => (
@@ -18,17 +19,22 @@ export const SearchIco = ({onClick}:{onClick:()=>void}) => (
 ) 
 
 interface Props {
-  action: (text: string)=>void;
+  action?: (text: string)=>void;
 }
+
 export function WikiSearch({action}:Props){
 
+
   const [searchText, setSearchText] = useState('');
+
+  const router = useRouter();
 
   function handleSearch(){
     if(!searchText) {
       return;
     }
-    action(searchText);
+    // action(searchText);
+    router.push(`/search/en/${searchText}`)
     // setSearchText('');
   }
 
