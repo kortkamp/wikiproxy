@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  
   width: 100%;
   overflow: hidden;
   height: 500px;
-  
 `;
 
 export const List = styled.ul`
@@ -17,11 +15,22 @@ export const List = styled.ul`
   cursor: move;
 `;
 
-export const FeaturedItem = styled.li`
+interface FeaturedItemProps {
+  index: number;
+}
+export const FeaturedItem = styled.li<FeaturedItemProps>`
   width: 250px;
   height: 250px;
   background-size: cover;
   overflow: hidden;
+
+  transform: translateX(100vw);
+  
+  &.inView {
+    transition: 0.5s linear;
+    transition-delay: ${props=> props.index* 50}ms;
+    transform: translateX(0);
+  }
 
   &:hover{
     div::before{
