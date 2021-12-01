@@ -15,6 +15,13 @@ export const Container = styled.div`
     color: ${({theme})=> theme.colors.text_dark};
     font-size: 35px;
     border-bottom: 1px solid #dfe1e5;
+
+    user-select: none;
+    
+    @media (max-width: 720px){
+        padding-left: 50px;
+    }
+
   
 `;
 
