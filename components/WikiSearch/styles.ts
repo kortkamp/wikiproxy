@@ -11,6 +11,7 @@ export const Container = styled.div`
   user-select: none;
 
   background-color: white;
+  opacity: 1;
 
   box-shadow: 0 0 3px black;
 
