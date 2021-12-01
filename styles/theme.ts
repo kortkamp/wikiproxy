@@ -11,6 +11,7 @@ export const lightTheme = {
     text_dark: '#222',
     link: '#1559b5',
     background: '#fcfcfc',
+    background_light:  '#eaecf0',
   
   },
 
@@ -33,6 +34,8 @@ export const darkTheme = {
     text_dark: '#eee',
     link: '#ccc',
     background: '#222',
+    background_light:  '#222',
+    
  
   },
  

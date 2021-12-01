@@ -73,9 +73,91 @@ export const WikiView = styled.div`
 
   font-weight:200;
   color: ${({theme})=>theme.colors.text_dark};
+  padding: 0 30px;
+  font-family: Helvetica, sans-serif;
 
-  & > * {
+  & > h1 , p {
     text-align: center;
     z-index: 1;
   }
+
+  
+`;
+
+
+export const FloatingBetween = styled.div`
+  height: 0;
+  transform: translateY(-18px);
+  z-index: 10;
+  & > *{
+    height: 40px;
+    width: 400px;
+  }
+`;
+
+export const WikiBanner = styled.div`
+  position: relative;
+  width: 100%;
+  /* height: 500px; */
+
+  display: flex;
+  flex-direction: column;
+
+ 
+  /* overflow: hidden; */
+
+
+`;
+
+
+export const BannerItem = styled.div`
+  /* position: absolute; */
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 40px;
+  height: 100%;
+  width: 100%;
+
+  background-color: white;
+  overflow: hidden;
+
+  &.inverse {
+    flex-direction: row-reverse;
+    h1 {
+      text-align: end;
+    }
+  }
+
+  
+`;
+export const BannerAside = styled.div`
+  position: relative;
+  flex: 1;
+
+ 
+  text-align: center;
+`;
+export const BannerText = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 60px; */
+  & > p{
+    margin-top: 10px;
+    width: 300px;
+    text-align: justify;
+  }
+
+  @media (max-width: 720px){
+    & > p{
+      margin-top: 10px;
+      width: 250px;
+      text-align: justify;
+    }
+
+  }
+
 `;
