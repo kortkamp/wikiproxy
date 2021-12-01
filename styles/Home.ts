@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   margin-top: 0 auto;
+
+  background-color: ${(props)=> props.theme.colors.background};
   
 
-  `;
+`;
 
 export const Content = styled.div`  
   width: 100%;
