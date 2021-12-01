@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 
   a {
-    color: ${({theme})=>theme.colors.text_dark};
+    color: ${({theme})=>theme.colors.text_dark} !important;
     font-weight: 600;
   }
  
