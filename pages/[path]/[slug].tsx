@@ -10,6 +10,7 @@ const WikiSection = dynamic(() => import("../../components/WikiSection"));
 import {Container} from '../../styles/Article';
 import { useData } from "../../hooks/useData";
 import * as services from "../../services";
+import { ScrollButton } from "../../components/ScrollButton";
 
 interface PropsMobileView {
   stringPath: string;
@@ -62,14 +63,13 @@ const Post = ({
         <title>Wikiwand</title>
       </Head>
       
-      {/* <BackgroundImage page={stringSlug} lang={stringPath}></BackgroundImage> */}
       <Header language={language}/>
       {
         pageFound ?
         <Container>
           <Toc data= { sectionsData.parse } />
           <div className="contentWraper article_content">
-            <div className='title'>
+            <div className='articleTitle'>
               {sectionsData.parse.title}
             </div>
             <div id="overview" className="article_content" dangerouslySetInnerHTML={{ __html: htmlData }} ></div>
@@ -80,6 +80,7 @@ const Post = ({
                 <WikiSection key={section.index} lang={language} page={articleName} section={section}/>    
             ))}
           </div>
+          <ScrollButton />
         </Container>
         :
         <Container>
@@ -96,8 +97,16 @@ const Post = ({
   )
 }
 
-export const getServerSideProps = async ({query}) => {
+interface IArticleQuery {
+  query: {
+    path: string;
+    slug: string;
+  }
+}
+
+export const getServerSideProps = async ({query}:IArticleQuery) => {
   const { slug , path} = query;
+  // console.log(query)
 
   const articleName = slug as string;
   const language = path as string; 
@@ -108,45 +117,5 @@ export const getServerSideProps = async ({query}) => {
     props: {language, articleName , ...responseData}, 
   }
 }
-
-
-
-
-
-export const __getServerSideProps = async ({query}) => {
-  
-  const { slug , path} = query;
-
-  let stringPath = path as string;
-
-  let language = path as string; 
-  if(stringPath === 'wiki'){
-    language = 'en';
-  }
-  const stringSlug = slug as string;
-
-  const url = `https://${language}.wikipedia.org/w/api.php?action=parse&page=${encodeURI(stringSlug)}&mobileformat=&prop=text&section=0&format=json&effectivelanglinks=&redirects=`
-  const sectionsUrl = `https://${language}.wikipedia.org/w/api.php?action=parse&page=${encodeURI(stringSlug)}&prop=sections&format=json`
-
-  try{
-    const {data:sectionsData} = await axios.get(sectionsUrl);
-    const  { data } = await axios.get(url);
-
-    const wikiData = data.parse.text['*'].replace(/\/wiki\//g, `/${language}/`);
-    
-    return {
-      props: {stringPath,stringSlug, data: wikiData , sectionsData}, // will be passed to the page component as props
-    }
-  }
-  catch (err){
-    console.log(err)
-  }
-
-  return {
-    props: {}, 
-  }
-
-}
-
 
 export default Post
