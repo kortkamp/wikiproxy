@@ -10,13 +10,16 @@ export const Container = styled.div`
   font: ${({theme})=>theme.font};
   background-color: ${({theme})=>theme.colors.background};
   outline: none;
+
+  box-shadow: 2px 0 2px grey;
   
   z-index: 999;
   transition: .4s;
   
   &.hide {
     max-width: 0;
-    padding: 0px 0px;
+    transform: translateX(-100%)
+    /* padding: 0px 0px; */
   }
 
   a {
@@ -27,12 +30,41 @@ export const Container = styled.div`
   svg#menu {
     height: 20px;
     width: 20px;
-    fill: ${({theme})=>theme.colors.text_dark}
+    fill: ${({theme})=>theme.colors.text_dark};
+    @media (max-width: 720px){
+      
+      height: 40px;
+      width: 40px;
+      padding: 7px;
+
+      background-color: black;
+      fill: white;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+
+
+  @media (max-width: 720px){
+    position: fixed;
   }
 
 `;
 
+export const MenuButton = styled.div`
+  position: absolute;
+  left: 0;
+  top: 12px;
+  @media (max-width: 720px){
+      /* position: absolute; */
+      left: 100%;
+      top: 10px;
+      
+  }
+`;
+
 export const Header = styled.h1`
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -50,12 +82,6 @@ export const Header = styled.h1`
   white-space: nowrap;
   text-overflow: ellipsis;
 
-
-  svg {
-    position: absolute;
-    top: 0.8rem;
-    left: 2px;
-  }
 `;
 
 export const TocList = styled.ul`

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { Container, Header, TocItem, TocList } from "./styles";
+import { Container, Header, MenuButton, TocItem, TocList } from "./styles";
 
 
 interface Props {
@@ -50,11 +50,11 @@ export default function Toc({ data }:Props){
 
   return (
     <Container className={isHide ? 'hide' : ''}> 
+        <MenuButton onClick={()=>{setIsHide(!isHide)}} >
+          <MenuIco />
+        </MenuButton>
       <Header>
         {data.title}
-        <div onClick={()=>{setIsHide(!isHide)}} >
-          <MenuIco />
-        </div>
 
       </Header>
       <TocList>
