@@ -126,8 +126,7 @@ export function FloatingTagsBackground() {
     }
 
     const initialFloatingItems:ITag[] = [];
-    const parentHeight = elRef.current.offsetHeight ;
-    const parentWidth = elRef.current.offsetWidth ;
+
     
     tags.forEach((tag)=>{
       const randonAngle1 = Math.random() * 2 * Math.PI;
