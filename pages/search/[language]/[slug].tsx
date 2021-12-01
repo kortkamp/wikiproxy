@@ -79,8 +79,13 @@ const SearchPage = ({
     </>
   )
 }
-
-export const getServerSideProps = async ({query}) => {
+interface ISearchQuery {
+  query: {
+    language: string;
+    slug: string;
+  }
+}
+export const getServerSideProps = async ({query}:ISearchQuery) => {
   const { slug , language} = query;
   
   return {
