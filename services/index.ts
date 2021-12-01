@@ -33,8 +33,8 @@ export async function GetFeatured(language:string = 'en'){
 
   let today = new Date();
   let year = today.getFullYear();
-  let month = today.getMonth() + 1;
-  let day = today.getDate();
+  let month = (today.getMonth() + 1).toString().padStart(2, "0");
+  let day = today.getDate().toString().padStart(2, "0");
   let url = `https://api.wikimedia.org/feed/v1/wikipedia/${language}/featured/${year}/${month}/${day}`;
 
   const { data } = await axios.get(url);
