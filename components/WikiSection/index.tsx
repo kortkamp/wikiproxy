@@ -42,12 +42,14 @@ export default function WikiSection({ lang, page , section}:Props){
     getData();
   },[url,lang])
   
-
+  // using dangerouslySetInnerHTML seems to cause user block on Vercel
+  // fix that
   return (
-    <Container
-      className={'article_content'}  
-      dangerouslySetInnerHTML={{ __html: htmlData || '' }}>
-    </Container>
+    <span>Fix Vercel Restriction</span>
+    // <Container
+    //   className={'article_content'}  
+    //   dangerouslySetInnerHTML={{ __html: htmlData || '' }}>
+    // </Container>
   )
 
 }

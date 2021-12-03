@@ -56,6 +56,8 @@ const Post = ({
 
   const pageFound = httpStatus === 200;
 
+  // using dangerouslySetInnerHTML seems to cause user block on Vercel
+  // fix that
 
   return (
     <>
@@ -72,7 +74,8 @@ const Post = ({
             <div className='articleTitle'>
               {sectionsData.parse.title}
             </div>
-            <div id="overview" className="article_content" dangerouslySetInnerHTML={{ __html: htmlData }} ></div>
+
+            {/* <div id="overview" className="article_content" dangerouslySetInnerHTML={{ __html: htmlData }} ></div> */}
           
             { sectionsData.parse.sections
             .filter((section)=>section.byteoffset > 0)
